@@ -1,4 +1,4 @@
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt    append_history
@@ -57,11 +57,11 @@ export NVM_DIR="$HOME/.nvm"
 export GPG_TTY="$(tty)"
 
 # zig
-# export PATH=$PATH:~/Development/zig
-# export PATH=$PATH:~/Development/zls
+# export PATH=$PATH:$HOME/Development/zig
+# export PATH=$PATH:$HOME/Development/zls
 
 # neovim executable
-alias nvim=~/.nvim/bin/nvim
+alias nvim=$HOME/.nvim/bin/nvim
 alias vim=nvim
 
 # Gitignore generator
