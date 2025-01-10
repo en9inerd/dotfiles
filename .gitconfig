@@ -1,0 +1,11 @@
+[user]
+	email = 18351400+en9inerd@users.noreply.github.com
+	name = Vladimir
+	signingkey = 50B791F795CA288A!
+[commit]
+	gpgsign = true
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[init]
+	defaultBranch = master
