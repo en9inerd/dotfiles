@@ -16,4 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require('lazy').setup 'plugins'
+require('lazy').setup('plugins', {
+  rocks = {
+    enabled = false, -- Disable luarocks support
+  },
+})
