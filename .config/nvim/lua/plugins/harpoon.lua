@@ -31,9 +31,15 @@ return {
 
     vim.keymap.set('n', '<leader>a', function()
       harpoon:list():add()
-    end)
+    end, { desc = 'Add current file to harpoon' })
     vim.keymap.set('n', '<C-e>', function()
       toggle_telescope(harpoon:list())
     end, { desc = 'Open harpoon window' })
+    vim.keymap.set('n', '<C-j>', function()
+      harpoon:list():next()
+    end, { desc = 'Navigate to next file' })
+    vim.keymap.set('n', '<C-k>', function()
+      harpoon:list():prev()
+    end, { desc = 'Navigate to previous file' })
   end,
 }

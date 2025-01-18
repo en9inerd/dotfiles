@@ -1,0 +1,23 @@
+# font
+font-family="Fira Code"
+font-size=16
+font-style=Regular
+
+# ligatures
+font-feature=-calt
+font-feature=-liga
+font-feature=-dlig
+
+# theme
+theme=Dracula+
+
+# cursor
+shell-integration-features=no-cursor
+cursor-style=block
+cursor-style-blink=false
+
+# window
+window-height=40
+window-width=120
+
+# macos-titlebar-style=tabs
