@@ -1,0 +1,19 @@
+[general]
+import = [
+    "~/.config/alacritty/dracula_plus.toml"
+]
+
+[window]
+padding.x = 5
+padding.y = 5
+option_as_alt = "Both"
+
+[window.dimensions]
+columns = 120
+lines = 40
+
+[font]
+normal.family = "Fira Code"
+normal.style = "Regular"
+size = 16
+

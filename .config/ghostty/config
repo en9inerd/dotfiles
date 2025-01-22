@@ -15,6 +15,7 @@ theme=Dracula+
 shell-integration-features=no-cursor
 cursor-style=block
 cursor-style-blink=false
+adjust-cursor-thickness = 3
 
 # window
 window-height=40
