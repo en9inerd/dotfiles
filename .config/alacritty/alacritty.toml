@@ -16,4 +16,5 @@ lines = 40
 normal.family = "Fira Code"
 normal.style = "Regular"
 size = 16
+offset.x = 1
 
