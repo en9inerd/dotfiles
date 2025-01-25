@@ -7,6 +7,8 @@ font-style=Regular
 font-feature=-calt
 font-feature=-liga
 font-feature=-dlig
+font-feature=ss05
+font-feature=ss03
 
 # theme
 theme=Dracula+
@@ -15,7 +17,7 @@ theme=Dracula+
 shell-integration-features=no-cursor
 cursor-style=block
 cursor-style-blink=false
-# adjust-cursor-thickness = 3
+adjust-cursor-thickness = 3
 
 # window
 window-height=40
