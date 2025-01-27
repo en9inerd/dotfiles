@@ -1,7 +1,7 @@
 return {
   { -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
-    -- enabled = false,
+    enabled = false,
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
@@ -26,8 +26,8 @@ return {
           highlight = scopeHl,
         },
         indent = {
-          char = '▏',
-          tab_char = '▏',
+          char = '│',
+          tab_char = '│',
           highlight = indentHl,
         },
       }

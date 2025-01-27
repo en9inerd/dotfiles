@@ -3,7 +3,7 @@ font-family="Fira Code"
 font-size=16
 font-style=Regular
 
-# ligatures
+# ligature
 font-feature=-calt
 font-feature=-liga
 font-feature=-dlig
@@ -14,10 +14,10 @@ font-feature=ss03
 theme=Dracula+
 
 # cursor
-shell-integration-features=no-cursor
+shell-integration-features=no-cursor,no-sudo
 cursor-style=block
 cursor-style-blink=false
-adjust-cursor-thickness = 3
+# adjust-cursor-thickness=3
 
 # window
 window-height=40
