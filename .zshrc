@@ -56,6 +56,9 @@ export NVM_DIR="$HOME/.nvm"
 # gpg
 export GPG_TTY="$(tty)"
 
+# local bin
+export PATH=$PATH:$HOME/.local/bin
+
 # zig
 # export PATH=$PATH:$HOME/Development/zig
 # export PATH=$PATH:$HOME/Development/zls
