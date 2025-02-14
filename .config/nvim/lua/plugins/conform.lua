@@ -38,9 +38,13 @@ return {
         python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
-        -- javascript = { 'biome' },
-        -- typescript = { 'biome' },
+        javascript = { 'prettier', 'biome', stop_after_first = true },
+        typescript = { 'prettier', 'biome', stop_after_first = true },
+        -- html = { 'prettier', 'biome', stop_after_first = true },
+        -- css = { 'prettier', 'biome', stop_after_first = true },
+        -- scss = { 'prettier', 'biome', stop_after_first = true },
+        -- json = { 'prettier', 'biome', stop_after_first = true },
+        -- htmlangular = { 'prettier', 'biome', stop_after_first = true },
       },
     },
   },
