@@ -64,7 +64,7 @@ export PATH=$PATH:$HOME/.local/bin
 # export PATH=$PATH:$HOME/Development/zls
 
 # neovim executable
-alias nvim=$HOME/.nvim/bin/nvim
+export PATH="$HOME/.nvim/bin:$PATH"
 alias vim=nvim
 
 # Gitignore generator
