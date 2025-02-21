@@ -3,6 +3,9 @@
 
 vim.g.mapleader = ' '
 
+-- Keymap for netrw
+vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { desc = 'Open netrw' })
+
 --) Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
