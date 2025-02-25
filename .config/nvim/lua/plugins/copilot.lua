@@ -1,6 +1,7 @@
 return {
   {
     'github/copilot.vim',
+    enabled = false,
     config = function()
       -- Disable the default <Tab> mapping
       vim.g.copilot_no_tab_map = true

@@ -2,6 +2,7 @@
 --  See `:help vim.keymap.set()`
 
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Keymap for netrw
 vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { desc = 'Open netrw' })
