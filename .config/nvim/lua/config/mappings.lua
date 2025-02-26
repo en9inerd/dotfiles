@@ -53,7 +53,7 @@ vim.keymap.set('n', '<leader>Y', [["+Y]])
 vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
 
 -- Search and replace
-vim.keymap.set('n', '<leader>S', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set('n', '<leader>S', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Substitution' })
 
 -- Make the current file executable
 vim.keymap.set('n', '<leader>X', '<cmd>!chmod +x %<CR>', { silent = true })
