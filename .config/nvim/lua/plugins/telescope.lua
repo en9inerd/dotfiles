@@ -51,6 +51,9 @@ return {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        defaults = {
+          path_display = { 'smart' },
+        },
         pickers = {
           find_files = {
             find_command = { 'rg', '--files', '--hidden', '--follow', '--glob', '!.git' },

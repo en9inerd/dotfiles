@@ -5,6 +5,8 @@ return {
     'lewis6991/gitsigns.nvim',
     opts = {
       on_attach = function(bufnr)
+        vim.cmd 'redrawstatus'
+
         local gitsigns = require 'gitsigns'
 
         local function map(mode, l, r, opts)
