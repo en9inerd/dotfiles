@@ -45,7 +45,6 @@ return {
         scss = { 'prettier', 'biome', stop_after_first = true },
         json = { 'prettier', 'biome', stop_after_first = true },
         htmlangular = { 'prettier', 'biome', stop_after_first = true },
-        html = { 'prettier', 'biome', stop_after_first = true },
         markdown = { 'prettier', 'biome', stop_after_first = true },
       },
     },
