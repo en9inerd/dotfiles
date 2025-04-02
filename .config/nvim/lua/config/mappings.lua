@@ -29,31 +29,31 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Move lines up and down in visual mode
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
 -- Joining lines should not remove the cursor position
-vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Join lines' })
 
 -- Keep cursor centered when navigating up and down
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page' })
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Search next' })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Search previous' })
 
 -- Restart LSP
-vim.keymap.set('n', '<leader>zig', '<cmd>LspRestart<cr>')
+vim.keymap.set('n', '<leader>zig', '<cmd>LspRestart<cr>', { desc = 'Restart LSP' })
 
 -- Paste from clipboard in visual mode
-vim.keymap.set('x', '<leader>p', [["_dP]])
+vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste from clipboard' })
 
 -- Clipboard integration
-vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
-vim.keymap.set('n', '<leader>Y', [["+Y]])
-vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
+vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'Copy to clipboard' })
+vim.keymap.set('n', '<leader>Y', [["+Y]], { desc = 'Copy to clipboard (line)' })
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', { desc = 'Delete without copying to clipboard' })
 
 -- Search and replace
 vim.keymap.set('n', '<leader>S', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Substitution' })
 
 -- Make the current file executable
-vim.keymap.set('n', '<leader>X', '<cmd>!chmod +x %<CR>', { silent = true })
+vim.keymap.set('n', '<leader>X', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make file executable' })
