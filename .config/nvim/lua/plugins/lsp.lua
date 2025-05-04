@@ -80,6 +80,10 @@ return {
           -- or a suggestion from your LSP for this to activate.
           map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
 
+          -- Hover signature help
+          --  This will show you the function signature of the function under your cursor
+          map('K', vim.lsp.buf.hover, 'Hover Documentation')
+
           -- Find references for the word under your cursor.
           map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
