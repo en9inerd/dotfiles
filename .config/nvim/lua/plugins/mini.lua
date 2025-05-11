@@ -7,6 +7,7 @@ return {
   },
   {
     'echasnovski/mini.surround',
+    opts = {},
   },
   {
     'echasnovski/mini.statusline',
