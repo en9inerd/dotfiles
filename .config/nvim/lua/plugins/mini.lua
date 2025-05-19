@@ -6,10 +6,6 @@ return {
     },
   },
   {
-    'echasnovski/mini.surround',
-    opts = {},
-  },
-  {
     'echasnovski/mini.statusline',
     config = function()
       local statusline = require 'mini.statusline'
