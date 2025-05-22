@@ -52,10 +52,26 @@ return {
         -- },
         defaults = {
           path_display = { 'filename_first' },
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+            '--glob=!.git/',
+          },
         },
         pickers = {
           find_files = {
-            find_command = { 'rg', '--files', '--hidden', '--follow', '--glob', '!.git' },
+            find_command = { 'fd', '--type', 'f', '--hidden', '--follow', '--exclude', '.git' },
+          },
+          live_grep = {
+            additional_args = function()
+              return { '--hidden', '--glob', '!.git/' }
+            end,
           },
         },
         extensions = {
