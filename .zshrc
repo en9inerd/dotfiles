@@ -70,6 +70,8 @@ alias vim=nvim
 # Gitignore generator
 function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
 
+alias rm='rm -i'
+
 # PATH analyzer
 alias path-analyzer="echo $PATH | tr ':' '\n' | sort | uniq -c"
 
