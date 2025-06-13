@@ -3,9 +3,6 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
--- Show line numbers in netrw
-vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
-
 -- Set the session options to save the session
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 
