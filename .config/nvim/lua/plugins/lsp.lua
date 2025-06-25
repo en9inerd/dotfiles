@@ -228,8 +228,10 @@ return {
         ts_ls = {
           root_markers = { 'tsconfig.json', '.git' },
         },
-        angularls = {},
-        --
+        -- angularls = {},
+        -- cssls = {},
+        -- css_variables = {},
+        -- html = {},
 
         lua_ls = {
           -- cmd = { ... },
