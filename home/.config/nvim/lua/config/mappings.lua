@@ -4,6 +4,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Close current buffer
+vim.keymap.set('n', '<leader>bd', ':bp | bd#<CR>', { desc = 'Delete buffer, keep window' })
+
 -- Keymap for netrw
 vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { desc = 'Open netrw' })
 

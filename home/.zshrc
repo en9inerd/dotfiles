@@ -57,7 +57,7 @@ export NVM_DIR="$HOME/.nvm"
 export GPG_TTY="$(tty)"
 
 # local bin
-export PATH=$PATH:$HOME/.local/bin
+export PATH="$PATH:$HOME/.local/bin"
 
 # zig
 # export PATH=$PATH:$HOME/Development/zig
@@ -74,7 +74,3 @@ alias rm='rm -i'
 
 # PATH analyzer
 alias path-analyzer="echo $PATH | tr ':' '\n' | sort | uniq -c"
-
-# Dotfiles management script
-alias dotfiles='$HOME/.dotfiles/scripts/dotfiles-manager.sh'
-
