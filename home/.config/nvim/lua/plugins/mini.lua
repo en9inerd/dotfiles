@@ -10,6 +10,16 @@ return {
     config = function()
       local statusline = require 'mini.statusline'
       local active_content = function()
+        local function ruler_percentage()
+          local current = vim.fn.line '.'
+          local total = vim.fn.line '$'
+          if total == 0 then
+            return '[0%%]'
+          end
+          local percent = math.floor((current / total) * 100)
+          return string.format('[%d%%%%]', percent)
+        end
+
         local mode, mode_hl = MiniStatusline.section_mode { trunc_width = math.huge }
         local git = MiniStatusline.section_git { trunc_width = 40 }
         local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
@@ -17,6 +27,7 @@ return {
         local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
         local location = '%2l:%-2v'
         local search = MiniStatusline.section_searchcount { trunc_width = 75 }
+        local ruler = ruler_percentage()
 
         return MiniStatusline.combine_groups {
           { hl = mode_hl, strings = { mode } },
@@ -25,7 +36,7 @@ return {
           { hl = 'MiniStatuslineFilename', strings = { filename } },
           '%=', -- End left alignment
           { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-          { hl = mode_hl, strings = { search, location } },
+          { hl = mode_hl, strings = { search, location, ruler } },
         }
       end
 
