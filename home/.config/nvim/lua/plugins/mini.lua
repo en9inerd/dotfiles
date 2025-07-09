@@ -1,11 +1,5 @@
 return {
   {
-    'echasnovski/mini.ai',
-    opts = {
-      n_lines = 500,
-    },
-  },
-  {
     'echasnovski/mini.statusline',
     config = function()
       local statusline = require 'mini.statusline'
