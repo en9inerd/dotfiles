@@ -51,6 +51,7 @@ return {
         --   },
         -- },
         defaults = {
+          preview = false,
           path_display = { 'filename_first' },
           vimgrep_arguments = {
             'rg',
