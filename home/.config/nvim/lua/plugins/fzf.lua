@@ -3,7 +3,7 @@ return {
     'ibhagwan/fzf-lua',
     config = function()
       require('fzf-lua').setup {
-        'telescope',
+        -- 'telescope',
         winopts = {
           preview = {
             hidden = true,
@@ -16,6 +16,7 @@ return {
           cwd_prompt = false,
         },
       }
+      require('fzf-lua').register_ui_select()
 
       local fzf = require 'fzf-lua'
 
