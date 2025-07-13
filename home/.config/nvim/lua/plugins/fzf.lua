@@ -2,7 +2,20 @@ return {
   {
     'ibhagwan/fzf-lua',
     config = function()
-      require('fzf-lua').setup()
+      require('fzf-lua').setup {
+        'telescope',
+        winopts = {
+          preview = {
+            hidden = true,
+          },
+        },
+        defaults = {
+          formatter = 'path.filename_first',
+        },
+        files = {
+          cwd_prompt = false,
+        },
+      }
 
       local fzf = require 'fzf-lua'
 
