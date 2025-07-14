@@ -15,6 +15,14 @@ return {
         files = {
           cwd_prompt = false,
         },
+        lsp = {
+          code_actions = {
+            winopts = {
+              height = 0.3,
+              width = 0.4,
+            },
+          },
+        },
       }
       require('fzf-lua').register_ui_select()
 
