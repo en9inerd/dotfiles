@@ -4,6 +4,7 @@ return {
     config = function()
       require('fzf-lua').setup {
         -- 'telescope',
+        fzf_opts = { ['--cycle'] = true },
         winopts = {
           preview = {
             hidden = true,
