@@ -16,6 +16,9 @@ return {
         files = {
           cwd_prompt = false,
         },
+        buffers = {
+          sort_lastused = false,
+        },
         lsp = {
           code_actions = {
             winopts = {
