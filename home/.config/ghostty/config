@@ -1,14 +1,19 @@
 # font
-font-family="Fira Code"
+# font-family="Fira Code"
 font-size=16
 font-style=Regular
 
-# ligature
+# ligatures
+# JetBrains Mono:
 font-feature=-calt
-font-feature=-liga
-font-feature=-dlig
-font-feature=ss05
-font-feature=ss03
+font-feature=zero
+font-feature=cv12,cv18,cv19,cv20
+# Fira Code:
+# font-feature=-calt
+# font-feature=-liga
+# font-feature=-dlig
+# font-feature=ss05
+# font-feature=ss03
 
 # theme
 theme=Dracula+
