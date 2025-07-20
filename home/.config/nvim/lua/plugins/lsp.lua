@@ -230,7 +230,16 @@ return {
         ts_ls = {
           root_markers = { 'tsconfig.json', '.git' },
         },
-        -- angularls = {},
+        angularls = {
+          on_attach = function(client, bufnr)
+            client.server_capabilities.renameProvider = false
+            client.server_capabilities.definitionProvider = false
+            client.server_capabilities.referencesProvider = false
+            client.server_capabilities.implementationProvider = false
+            client.server_capabilities.documentHighlightProvider = false
+            client.server_capabilities.documentSymbolProvider = false
+          end,
+        },
         -- cssls = {},
         -- css_variables = {},
         -- html = {},
