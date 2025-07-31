@@ -76,5 +76,3 @@ vim.o.swapfile = false
 vim.o.backup = false
 
 vim.o.colorcolumn = '120'
-
-vim.o.winborder = 'single'
