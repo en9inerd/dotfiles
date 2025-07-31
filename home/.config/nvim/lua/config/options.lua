@@ -77,4 +77,4 @@ vim.o.backup = false
 
 vim.o.colorcolumn = '120'
 
-vim.o.winborder = 'rounded'
+vim.o.winborder = 'single'
