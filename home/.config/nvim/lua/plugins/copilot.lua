@@ -22,11 +22,11 @@ return {
       vim.api.nvim_create_user_command('ToggleCopilot', toggle_copilot, { desc = 'Toggle GitHub Copilot' })
 
       -- Set the default keymap for Copilot
-      vim.keymap.set('i', '<M-k>', 'copilot#Accept("\\<CR>")', { expr = true, silent = true, replace_keycodes = false })
-      vim.keymap.set('i', '<M-j>', '<Plug>(copilot-next)')
-      vim.keymap.set('i', '<M-h>', '<Plug>(copilot-previous)')
-      vim.keymap.set('i', '<M-l>', '<Plug>(copilot-suggest)')
-      vim.keymap.set('n', '<M-t>', ':ToggleCopilot<CR>')
+      vim.keymap.set('i', '<M-k>', 'copilot#Accept("\\<CR>")', { desc = 'Accept suggestion', expr = true, silent = true, replace_keycodes = false })
+      vim.keymap.set('i', '<M-j>', '<Plug>(copilot-next)', { desc = 'Next Copilot suggestion' })
+      vim.keymap.set('i', '<M-h>', '<Plug>(copilot-previous)', { desc = 'Previous Copilot suggestion' })
+      vim.keymap.set('i', '<M-l>', '<Plug>(copilot-suggest)', { desc = 'Suggest Copilot' })
+      vim.keymap.set('n', '<M-t>', ':ToggleCopilot<CR>', { desc = 'Toggle Copilot' })
     end,
   },
 }
