@@ -6,6 +6,7 @@ return {
         -- 'telescope',
         fzf_opts = { ['--cycle'] = true },
         winopts = {
+          border = 'single',
           preview = {
             hidden = true,
           },

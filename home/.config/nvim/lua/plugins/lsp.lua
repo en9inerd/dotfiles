@@ -248,7 +248,7 @@ return {
         --     client.server_capabilities.documentSymbolProvider = false
         --   end,
         -- },
-        -- cssls = {},
+        cssls = {},
         -- css_variables = {},
         -- html = {},
 
