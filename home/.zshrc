@@ -74,3 +74,6 @@ alias rm='rm -i'
 
 # PATH analyzer
 alias path-analyzer="echo $PATH | tr ':' '\n' | sort | uniq -c"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
