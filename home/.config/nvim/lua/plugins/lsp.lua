@@ -228,7 +228,95 @@ return {
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {
-          root_markers = { 'tsconfig.json', '.git' },
+          root_dir = function(bufnr, on_dir)
+            bufnr = bufnr or 0
+            local fname = vim.api.nvim_buf_get_name(bufnr)
+            local start_path = nil
+
+            if fname == '' then
+              -- unnamed buffer: start from cwd so at least workspace detection works
+              start_path = vim.loop.cwd()
+            else
+              start_path = vim.fs.dirname(fname)
+            end
+
+            -- candidate tsconfigs (add more if you need)
+            local ts_config_files = {
+              'tsconfig.json',
+              'tsconfig.app.json',
+              'tsconfig.lib.json',
+              'tsconfig.base.json',
+              'tsconfig.spec.json',
+              'jsconfig.json',
+            }
+
+            -- helpers
+            local function found_dir_for(names, opts)
+              opts = opts or {}
+              opts.path = opts.path or start_path
+              opts.upward = opts.upward == nil and true or opts.upward
+              local found = vim.fs.find(names, opts)
+              if found and found[1] then
+                return vim.fs.dirname(found[1])
+              end
+              return nil
+            end
+
+            -- 1) nearest tsconfig-like file (package/app level)
+            local ts_root = found_dir_for(ts_config_files)
+            if ts_root and ts_root ~= '' then
+              if on_dir then
+                on_dir(ts_root)
+              else
+                return ts_root
+              end
+            end
+
+            -- 2) nearest package.json (often indicates package root)
+            local pkg_root = found_dir_for { 'package.json' }
+            if pkg_root and pkg_root ~= '' then
+              -- prefer package.json only if it is not the repo root with workspace config below
+              if on_dir then
+                on_dir(pkg_root)
+              else
+                return pkg_root
+              end
+            end
+
+            -- 3) workspace manifests (angular/nx/workspace)
+            local workspace_root = found_dir_for { 'angular.json', 'workspace.json', 'nx.json' }
+            if workspace_root and workspace_root ~= '' then
+              if on_dir then
+                on_dir(workspace_root)
+              else
+                return workspace_root
+              end
+            end
+
+            -- 4) lockfiles (workspace-level)
+            local lockfiles = { 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb' }
+            local lock_root = found_dir_for(lockfiles)
+            if lock_root and lock_root ~= '' then
+              if on_dir then
+                on_dir(lock_root)
+              else
+                return lock_root
+              end
+            end
+
+            -- 5) last resort: git root
+            local git_root = found_dir_for { '.git' }
+            if git_root and git_root ~= '' then
+              if on_dir then
+                on_dir(git_root)
+              else
+                return git_root
+              end
+            end
+
+            -- nothing found
+            return nil
+          end,
         },
         -- angularls = {
         --   on_attach = function(client, bufnr)
