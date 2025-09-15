@@ -45,7 +45,12 @@ typeset -g GIT_BRANCH=""
 precmd() {
   if [[ $PWD != $LAST_PWD ]]; then
     LAST_PWD=$PWD
-    GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || "")
+    GIT_BRANCH=""
+
+    # Only attempt to get branch if this is a git repo we can read
+    if [[ -d .git || $(git rev-parse --git-dir 2>/dev/null) ]]; then
+      GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || "")
+    fi
   fi
 }
 
