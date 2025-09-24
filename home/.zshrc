@@ -74,9 +74,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 # eval "$(pyenv virtualenv-init -)"
 
-# Lazy-load NVM
-source ~/.nvm_lazyload.zsh
-
 # gpg
 export GPG_TTY="$(tty)"
 
@@ -101,3 +98,6 @@ alias path-analyzer="echo $PATH | tr ':' '\n' | sort | uniq -c"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+# FNM
+eval "$(fnm env --use-on-cd --shell zsh)"
