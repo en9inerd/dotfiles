@@ -37,20 +37,25 @@ C_BG_PURPLE='%K{magenta}'
 C_BG_CYAN='%K{cyan}'
 C_BG_LIGHTGRAY='%K{white}'
 
-# Cache last directory and branch
-typeset -g LAST_PWD=""
+# only when HEAD (SHA) changes
+typeset -g LAST_GIT_SHA=""
 typeset -g GIT_BRANCH=""
 
-# Update branch only when directory changes
 precmd() {
-  if [[ $PWD != $LAST_PWD ]]; then
-    LAST_PWD=$PWD
-    GIT_BRANCH=""
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    local sha
+    sha=$(git rev-parse --verify --short HEAD 2>/dev/null) || sha=""
 
-    # Only attempt to get branch if this is a git repo we can read
-    if [[ -d .git || $(git rev-parse --git-dir 2>/dev/null) ]]; then
-      GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || "")
+    if [[ $sha != $LAST_GIT_SHA ]]; then
+      LAST_GIT_SHA=$sha
+
+      # compute branch; use symbolic-ref if available (clean branch name)
+      GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --abbrev-ref HEAD 2>/dev/null || "")
+      [[ $GIT_BRANCH == "HEAD" ]] && GIT_BRANCH=$sha
     fi
+  else
+    LAST_GIT_SHA=""
+    GIT_BRANCH=""
   fi
 }
 
