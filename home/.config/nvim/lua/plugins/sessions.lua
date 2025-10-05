@@ -1,14 +1,14 @@
-return {
-  'rmagatti/auto-session',
-  lazy = false,
+local M = {}
 
-  ---enables autocomplete for opts
-  ---@module "auto-session"
-  ---@type AutoSession.Config
-  opts = {
+function M.setup()
+  vim.pack.add { 'https://github.com/rmagatti/auto-session' }
+
+  require('auto-session').setup {
     auto_create = function()
       local cmd = 'git rev-parse --is-inside-work-tree'
       return vim.fn.system(cmd) == 'true\n'
     end,
-  },
-}
+  }
+end
+
+return M

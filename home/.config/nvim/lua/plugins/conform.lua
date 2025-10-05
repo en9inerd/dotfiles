@@ -1,19 +1,16 @@
-return {
-  { -- Autoformat
-    'stevearc/conform.nvim',
-    event = { 'BufWritePre' },
-    cmd = { 'ConformInfo' },
-    keys = {
-      {
-        '<leader>f',
-        function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
-        end,
-        mode = '',
-        desc = '[F]ormat buffer',
-      },
-    },
-    opts = {
+local M = {}
+local loaded = false
+
+function M.setup()
+  local load_conform = function()
+    if loaded then
+      return
+    end
+    loaded = true
+
+    vim.pack.add { 'https://github.com/stevearc/conform.nvim' }
+
+    require('conform').setup {
       notify_on_error = false,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
@@ -45,6 +42,15 @@ return {
         htmlangular = { 'prettier', 'biome', stop_after_first = true },
         -- markdown = { 'prettier', 'biome', stop_after_first = true },
       },
-    },
-  },
-}
+    }
+  end
+
+  vim.api.nvim_create_autocmd('BufWritePre', { once = true, callback = load_conform })
+
+  vim.keymap.set('', '<leader>f', function()
+    load_conform()
+    require('conform').format { async = true, lsp_format = 'fallback' }
+  end, { desc = '[F]ormat buffer' })
+end
+
+return M

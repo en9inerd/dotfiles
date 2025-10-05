@@ -4,6 +4,6 @@ vim.g.have_nerd_font = true
 require 'config.options'
 require 'config.mappings'
 require 'config.autocmds'
-require 'config.lazy'
+require 'config.pack'
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -1,9 +1,11 @@
-return {
-  'nvimdev/indentmini.nvim',
-  config = function(_, opts)
-    require('indentmini').setup(opts)
+local M = {}
 
-    vim.cmd [[highlight IndentLine guifg=#2e2d2d]]
-    vim.cmd [[highlight IndentLineCurrent guifg=#757575]]
-  end,
-}
+function M.setup()
+  vim.pack.add { 'https://github.com/nvimdev/indentmini.nvim' }
+
+  require('indentmini').setup()
+  vim.cmd [[highlight IndentLine guifg=#2e2d2d]]
+  vim.cmd [[highlight IndentLineCurrent guifg=#757575]]
+end
+
+return M

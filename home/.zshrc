@@ -5,8 +5,6 @@ setopt    append_history
 setopt    share_history
 setopt    inc_append_history
 
-# Make ls use colors
-export CLICOLOR=1
 alias ls='ls -Fa'
 
 # Define colors
@@ -36,6 +34,22 @@ C_BG_BLUE='%K{blue}'
 C_BG_PURPLE='%K{magenta}'
 C_BG_CYAN='%K{cyan}'
 C_BG_LIGHTGRAY='%K{white}'
+
+# neovim executable
+export PATH="$HOME/.nvim/bin:$PATH"
+alias vim=nvim
+
+# default editor
+export EDITOR=nvim
+
+# Add Homebrew completions before compinit
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
+# enable completions
+autoload -Uz compinit
+compinit
 
 # only when HEAD (SHA) changes
 typeset -g LAST_GIT_SHA=""
@@ -88,10 +102,6 @@ export PATH="$PATH:$HOME/.local/bin"
 # zig
 # export PATH=$PATH:$HOME/Development/zig
 # export PATH=$PATH:$HOME/Development/zls
-
-# neovim executable
-export PATH="$HOME/.nvim/bin:$PATH"
-alias vim=nvim
 
 # Gitignore generator
 function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
