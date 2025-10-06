@@ -2,13 +2,13 @@ local M = {}
 local loaded = false
 
 function M.setup()
+  vim.pack.add { 'https://github.com/stevearc/conform.nvim' }
+
   local load_conform = function()
     if loaded then
       return
     end
     loaded = true
-
-    vim.pack.add { 'https://github.com/stevearc/conform.nvim' }
 
     require('conform').setup {
       notify_on_error = false,
