@@ -45,9 +45,15 @@ function M.setup()
     }
   end
 
-  vim.api.nvim_create_autocmd('BufWritePre', { once = true, callback = load_conform })
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    once = true,
+    callback = function(args)
+      load_conform()
+      require('conform').format { bufnr = args.buf, lsp_format = 'fallback' }
+    end,
+  })
 
-  vim.keymap.set('', '<leader>f', function()
+  vim.keymap.set('n', '<leader>f', function()
     load_conform()
     require('conform').format { async = true, lsp_format = 'fallback' }
   end, { desc = '[F]ormat buffer' })

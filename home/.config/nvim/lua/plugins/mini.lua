@@ -16,7 +16,7 @@ function M.setup()
       return string.format('[%d%%%%]', percent)
     end
 
-    local mode, mode_hl = MiniStatusline.section_mode { trunc_width = math.huge }
+    local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 100 }
     local git = MiniStatusline.section_git { trunc_width = 40 }
     local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
     local filename = MiniStatusline.section_filename { trunc_width = 140 }

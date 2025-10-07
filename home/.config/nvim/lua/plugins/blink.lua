@@ -1,11 +1,20 @@
 local M = {}
 
 function M.setup()
-      vim.pack.add {
-        { src = 'https://github.com/folke/lazydev.nvim' },
-        { src = 'https://github.com/rafamadriz/friendly-snippets' },
-        { src = 'https://github.com/L3MON4D3/LuaSnip', version = vim.version.range '^2' },
-        { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '^1' },
+  vim.pack.add {
+    { src = 'https://github.com/folke/lazydev.nvim' },
+    { src = 'https://github.com/rafamadriz/friendly-snippets' },
+    { src = 'https://github.com/L3MON4D3/LuaSnip', version = vim.version.range '^2' },
+    { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '^1' },
+  }
+
+  vim.api.nvim_create_autocmd('VimEnter', {
+    once = true,
+    callback = function()
+      -- Setup LuaSnip and friendly-snippets loaders
+      require('luasnip.loaders.from_vscode').lazy_load()
+      require('luasnip.loaders.from_lua').lazy_load {
+        paths = { '~/.config/nvim/lua/snippets' },
       }
 
       local opts = {
@@ -76,12 +85,8 @@ function M.setup()
       }
 
       require('blink.cmp').setup(opts)
-
-      -- Setup LuaSnip and friendly-snippets loaders (copied from lazy config)
-      require('luasnip.loaders.from_vscode').lazy_load()
-      require('luasnip.loaders.from_lua').lazy_load {
-        paths = { '~/.config/nvim/lua/snippets' },
-      }
+    end,
+  })
 end
 
 return M
