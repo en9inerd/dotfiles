@@ -1,5 +1,5 @@
 vim.filetype.add {
   pattern = {
-    ['.*%.component%.html$'] = 'htmlangular',
+    ['.*%.component%.html'] = 'htmlangular',
   },
 }
