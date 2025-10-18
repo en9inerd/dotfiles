@@ -10,8 +10,12 @@ function M.setup()
 
   require('nvim-treesitter').install {
     'c',
+    'bash',
     'go',
     'html',
+    'htmlangular',
+    'css',
+    'scss',
     'javascript',
     'typescript',
     'lua',
