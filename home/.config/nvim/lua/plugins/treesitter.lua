@@ -1,28 +1,42 @@
 local M = {}
 
 function M.setup()
-  vim.pack.add { 'https://github.com/nvim-treesitter/nvim-treesitter' }
+  vim.pack.add {
+    {
+      src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+      version = 'main',
+    },
+  }
 
-  require('nvim-treesitter.configs').setup {
-    ensure_installed = {
-      'c',
-      'go',
-      'html',
-      'javascript',
-      'typescript',
-      'lua',
-      'vim',
-      'vimdoc',
-      'query',
-      'markdown',
-      'markdown_inline',
-    },
-    auto_install = true,
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = { 'ruby' },
-    },
-    indent = { enable = true, disable = { 'ruby' } },
+  vim.api.nvim_create_autocmd('PackChanged', {
+    pattern = '*',
+    callback = function(ev)
+      vim.notify(ev.data.spec.name .. ' has been updated.')
+      if ev.data.spec.name == 'nvim-treesitter' and ev.data.spec.kind ~= 'deleted' then
+        vim.cmd [[TSUpdate]]
+      end
+    end,
+  })
+
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = '*',
+    callback = function()
+      pcall(vim.treesitter.start) -- safe if no parser yet
+    end,
+  })
+
+  require('nvim-treesitter').install {
+    'c',
+    'go',
+    'html',
+    'javascript',
+    'typescript',
+    'lua',
+    'vim',
+    'vimdoc',
+    'query',
+    'markdown',
+    'markdown_inline',
   }
 end
 

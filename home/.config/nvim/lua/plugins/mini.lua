@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  vim.pack.add { 'https://github.com/echasnovski/mini.statusline' }
+  vim.pack.add { 'https://github.com/nvim-mini/mini.nvim' }
 
   local statusline = require 'mini.statusline'
 

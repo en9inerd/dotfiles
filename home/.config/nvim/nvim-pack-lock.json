@@ -31,7 +31,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "db3ccff",
+      "rev": "fcbf0cd",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -67,7 +67,7 @@
       "src": "https://github.com/echasnovski/mini.statusline"
     },
     "nvim-autopairs": {
-      "rev": "23320e7",
+      "rev": "7a2c97c",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lspconfig": {
