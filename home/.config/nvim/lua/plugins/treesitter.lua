@@ -8,23 +8,6 @@ function M.setup()
     },
   }
 
-  vim.api.nvim_create_autocmd('PackChanged', {
-    pattern = '*',
-    callback = function(ev)
-      vim.notify(ev.data.spec.name .. ' has been updated.')
-      if ev.data.spec.name == 'nvim-treesitter' and ev.data.spec.kind ~= 'deleted' then
-        vim.cmd [[TSUpdate]]
-      end
-    end,
-  })
-
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = '*',
-    callback = function()
-      pcall(vim.treesitter.start) -- safe if no parser yet
-    end,
-  })
-
   require('nvim-treesitter').install {
     'c',
     'go',
@@ -38,6 +21,23 @@ function M.setup()
     'markdown',
     'markdown_inline',
   }
+
+  vim.api.nvim_create_autocmd('PackChanged', {
+    pattern = '*',
+    callback = function(ev)
+      vim.notify(ev.data.spec.name .. ' has been updated.')
+      if ev.data.spec.name == 'nvim-treesitter' and ev.data.spec.kind ~= 'deleted' then
+        vim.cmd [[TSUpdate]]
+      end
+    end,
+  })
+
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = '*',
+    callback = function()
+      pcall(vim.treesitter.start)
+    end,
+  })
 end
 
 return M

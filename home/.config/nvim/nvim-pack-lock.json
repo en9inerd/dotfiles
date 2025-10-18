@@ -31,7 +31,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "fcbf0cd",
+      "rev": "db45bab",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -62,9 +62,9 @@
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
     },
-    "mini.statusline": {
-      "rev": "faa3977",
-      "src": "https://github.com/echasnovski/mini.statusline"
+    "mini.nvim": {
+      "rev": "8a7cf7e",
+      "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-autopairs": {
       "rev": "7a2c97c",
@@ -80,8 +80,9 @@
       "version": "3.0.0 - 4.0.0"
     },
     "nvim-treesitter": {
-      "rev": "42fc28ba",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+      "rev": "846d5113",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
     },
     "vim-fugitive": {
       "rev": "61b51c0",
