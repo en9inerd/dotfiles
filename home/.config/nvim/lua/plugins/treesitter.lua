@@ -12,10 +12,14 @@ function M.setup()
     'c',
     'bash',
     'go',
+    'gomod',
+    'gosum',
+    'gowork',
     'html',
     'htmlangular',
     'css',
     'scss',
+    'make',
     'javascript',
     'typescript',
     'lua',
@@ -24,6 +28,7 @@ function M.setup()
     'query',
     'markdown',
     'markdown_inline',
+    'zig',
   }
 
   vim.api.nvim_create_autocmd('PackChanged', {
