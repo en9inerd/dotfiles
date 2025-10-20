@@ -162,6 +162,7 @@ function M.setup()
     --
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     ts_ls = {
+      workspace_required = true,
       root_dir = function(bufnr, on_dir)
         local fname
         if type(bufnr) == 'number' then
@@ -175,7 +176,6 @@ function M.setup()
         local uv = vim.uv or vim.loop
         local start_dir = (fname == '' or fname == nil) and uv.cwd() or vim.fs.dirname(fname)
 
-        -- Nearest-ancestor walker (don’t rely on vim.fs.find order)
         local function nearest_dir_with(names, from_dir)
           local dir = from_dir
           local function exists(p)
@@ -196,52 +196,46 @@ function M.setup()
           return nil
         end
 
-        -- Priorities:
-        -- 1) Per-package anchors
-        local pkg_root = nearest_dir_with({ 'package.json' }, start_dir)
+        -- 1) Per-package markers (HIGHEST priority)
+        local pkg_root = nearest_dir_with({ 'tsconfig.json', 'tsconfig.app.json', 'tsconfig.lib.json', 'jsconfig.json', 'package.json' }, start_dir)
         if pkg_root then
           return (on_dir and on_dir(pkg_root)) or pkg_root
         end
 
-        -- 2) Per-package tsconfigs (NOT the workspace/base one)
-        local ts_root = nearest_dir_with({ 'tsconfig.json', 'tsconfig.app.json', 'tsconfig.lib.json', 'jsconfig.json' }, start_dir)
-        if ts_root then
-          return (on_dir and on_dir(ts_root)) or ts_root
+        -- 2) Angular workspace root (useful if a package truly has no tsconfig)
+        local ng_root = nearest_dir_with({ 'angular.json' }, start_dir)
+        if ng_root then
+          return (on_dir and on_dir(ng_root)) or ng_root
         end
 
-        -- 3) Workspace/base markers (lower priority)
-        local ws_root = nearest_dir_with({ 'tsconfig.base.json', 'pnpm-workspace.yaml', 'turbo.json', 'nx.json', 'workspace.json', 'angular.json' }, start_dir)
-        if ws_root then
-          return (on_dir and on_dir(ws_root)) or ws_root
-        end
-
-        -- 4) Lockfiles (as a last workspace hint)
-        local lock_root = nearest_dir_with({ 'pnpm-lock.yaml', 'yarn.lock', 'package-lock.json', 'bun.lockb' }, start_dir)
-        if lock_root then
-          return (on_dir and on_dir(lock_root)) or lock_root
-        end
-
-        -- 5) Git repo
+        -- 3) Git repo
         local git_root = nearest_dir_with({ '.git' }, start_dir)
         if git_root then
           return (on_dir and on_dir(git_root)) or git_root
         end
 
+        -- 4) Monorepo workspace markers (LAST resort; note: no tsconfig.base.json)
+        local ws_root = nearest_dir_with({ 'pnpm-workspace.yaml', 'nx.json', 'workspace.json', 'turbo.json' }, start_dir)
+        if ws_root then
+          return (on_dir and on_dir(ws_root)) or ws_root
+        end
+
         return nil
       end,
     },
-    -- angularls = {
-    --   on_attach = function(client, bufnr)
-    --     client.server_capabilities.renameProvider = false
-    --     client.server_capabilities.definitionProvider = false
-    --     client.server_capabilities.referencesProvider = false
-    --     client.server_capabilities.implementationProvider = false
-    --     client.server_capabilities.documentHighlightProvider = false
-    --     client.server_capabilities.documentSymbolProvider = false
-    --   end,
-    -- },
+    angularls = {
+      workspace_required = true,
+      on_attach = function(client, bufnr)
+        client.server_capabilities.renameProvider = false
+        -- client.server_capabilities.definitionProvider = false
+        client.server_capabilities.referencesProvider = false
+        -- client.server_capabilities.implementationProvider = false
+        -- client.server_capabilities.documentHighlightProvider = false
+        -- client.server_capabilities.documentSymbolProvider = false
+      end,
+    },
     cssls = {},
-    -- css_variables = {},
+    css_variables = {},
     -- html = {},
 
     lua_ls = {

@@ -31,11 +31,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "db45bab",
+      "rev": "c102a4e",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "1ee5c1f",
+      "rev": "20ad441",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "guess-indent.nvim": {
@@ -51,7 +51,7 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "6bdb14f",
+      "rev": "2304ff6",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer.nvim": {
@@ -62,9 +62,9 @@
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
     },
-    "mini.nvim": {
-      "rev": "8a7cf7e",
-      "src": "https://github.com/nvim-mini/mini.nvim"
+    "mini.statusline": {
+      "rev": "faa3977",
+      "src": "https://github.com/nvim-mini/mini.statusline"
     },
     "nvim-autopairs": {
       "rev": "7a2c97c",
@@ -80,7 +80,7 @@
       "version": "3.0.0 - 4.0.0"
     },
     "nvim-treesitter": {
-      "rev": "846d5113",
+      "rev": "71bf1665",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
