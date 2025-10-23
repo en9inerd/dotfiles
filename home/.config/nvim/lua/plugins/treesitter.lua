@@ -29,6 +29,9 @@ function M.setup()
     'markdown',
     'markdown_inline',
     'zig',
+    'yaml',
+    'dockerfile',
+    'json',
   }
 
   vim.api.nvim_create_autocmd('PackChanged', {
