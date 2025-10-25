@@ -7,6 +7,8 @@ vim.g.maplocalleader = ' '
 -- Close current buffer
 vim.keymap.set('n', '<leader>bd', ':bp | bd#<CR>', { desc = 'Delete buffer, keep window' })
 
+vim.keymap.set('n', '<leader>w', ':up<CR>', { desc = 'Save current buffer' })
+
 -- Keymap for netrw
 vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { desc = 'Open netrw' })
 

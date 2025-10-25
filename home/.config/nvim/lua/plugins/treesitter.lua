@@ -28,10 +28,16 @@ function M.setup()
     'query',
     'markdown',
     'markdown_inline',
-    'zig',
     'yaml',
     'dockerfile',
     'json',
+    'git_config',
+    'git_rebase',
+    'gitattributes',
+    'gitcommit',
+    'gitignore',
+    'toml',
+    'zig',
   }
 
   vim.api.nvim_create_autocmd('PackChanged', {
