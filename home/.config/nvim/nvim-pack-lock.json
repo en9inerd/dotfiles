@@ -80,7 +80,7 @@
       "version": "3.0.0 - 4.0.0"
     },
     "nvim-treesitter": {
-      "rev": "4a9f5797",
+      "rev": "98fe644c",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },

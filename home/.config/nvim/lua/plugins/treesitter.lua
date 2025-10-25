@@ -16,7 +16,7 @@ function M.setup()
     'gosum',
     'gowork',
     'html',
-    'htmlangular',
+    'angular',
     'css',
     'scss',
     'make',
@@ -36,7 +36,10 @@ function M.setup()
     'gitattributes',
     'gitcommit',
     'gitignore',
+    'sql',
+    'ssh_config',
     'toml',
+    'tmux',
     'zig',
   }
 
