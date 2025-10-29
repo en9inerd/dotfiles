@@ -10,7 +10,7 @@
       "src": "https://github.com/otavioschwanck/arrow.nvim"
     },
     "auto-session": {
-      "rev": "788ada9",
+      "rev": "f0eb3d6",
       "src": "https://github.com/rmagatti/auto-session"
     },
     "blink.cmp": {
@@ -31,7 +31,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "3ec1ffb",
+      "rev": "6bb2a26",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -51,7 +51,7 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "83db017",
+      "rev": "1d77bd8",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer.nvim": {
@@ -71,16 +71,16 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lspconfig": {
-      "rev": "a9b2fb5",
+      "rev": "2b52bc2",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
-      "rev": "a868c25",
+      "rev": "fcfa7e0",
       "src": "https://github.com/kylechui/nvim-surround",
       "version": "3.0.0 - 4.0.0"
     },
     "nvim-treesitter": {
-      "rev": "98fe644c",
+      "rev": "645f42e8",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
