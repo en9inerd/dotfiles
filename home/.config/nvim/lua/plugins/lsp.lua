@@ -128,8 +128,6 @@ function M.setup()
     },
   }
 
-  local angularls_cmd = require('lsp.angularls').cmd
-
   local servers = {
     -- clangd = {},
     gopls = {
@@ -226,7 +224,6 @@ function M.setup()
       end,
     },
     angularls = {
-      cmd = angularls_cmd,
       workspace_required = true,
       on_attach = function(client, bufnr)
         client.server_capabilities.renameProvider = false
@@ -237,8 +234,11 @@ function M.setup()
         -- client.server_capabilities.documentSymbolProvider = false
       end,
     },
-    cssls = {},
-    css_variables = {},
+    cssls = {
+      filetypes = { 'scss', 'less' },
+    },
+    somesass_ls = {},
+    -- css_variables = {},
     -- html = {},
 
     lua_ls = {

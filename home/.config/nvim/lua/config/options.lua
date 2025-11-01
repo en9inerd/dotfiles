@@ -7,6 +7,7 @@
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 
 vim.g.netrw_liststyle = 1
+vim.g.netrw_sort_by = 'exten'
 
 -- Make line numbers default
 vim.o.number = true
