@@ -128,6 +128,8 @@ function M.setup()
     },
   }
 
+  local angular_cmd = require 'lsp.angularls'
+
   local servers = {
     -- clangd = {},
     gopls = {
@@ -196,25 +198,21 @@ function M.setup()
           return nil
         end
 
-        -- 1) Per-package markers (HIGHEST priority)
-        local pkg_root = nearest_dir_with({ 'tsconfig.json', 'tsconfig.app.json', 'tsconfig.lib.json', 'jsconfig.json', 'package.json' }, start_dir)
-        if pkg_root then
-          return (on_dir and on_dir(pkg_root)) or pkg_root
-        end
-
-        -- 2) Angular workspace root (useful if a package truly has no tsconfig)
         local ng_root = nearest_dir_with({ 'angular.json' }, start_dir)
         if ng_root then
           return (on_dir and on_dir(ng_root)) or ng_root
         end
 
-        -- 3) Git repo
+        local pkg_root = nearest_dir_with({ 'tsconfig.json', 'tsconfig.app.json', 'tsconfig.lib.json', 'jsconfig.json', 'package.json' }, start_dir)
+        if pkg_root then
+          return (on_dir and on_dir(pkg_root)) or pkg_root
+        end
+
         local git_root = nearest_dir_with({ '.git' }, start_dir)
         if git_root then
           return (on_dir and on_dir(git_root)) or git_root
         end
 
-        -- 4) Monorepo workspace markers (LAST resort; note: no tsconfig.base.json)
         local ws_root = nearest_dir_with({ 'pnpm-workspace.yaml', 'nx.json', 'workspace.json', 'turbo.json' }, start_dir)
         if ws_root then
           return (on_dir and on_dir(ws_root)) or ws_root
@@ -224,6 +222,7 @@ function M.setup()
       end,
     },
     angularls = {
+      cmd = angular_cmd,
       workspace_required = true,
       on_attach = function(client, bufnr)
         client.server_capabilities.renameProvider = false
@@ -234,10 +233,10 @@ function M.setup()
         -- client.server_capabilities.documentSymbolProvider = false
       end,
     },
-    cssls = {
-      filetypes = { 'scss', 'less' },
-    },
     somesass_ls = {},
+    cssls = {
+      filetypes = { 'css' },
+    },
     -- css_variables = {},
     -- html = {},
 

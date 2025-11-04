@@ -47,11 +47,11 @@
       "src": "https://github.com/nvimdev/indentmini.nvim"
     },
     "lazydev.nvim": {
-      "rev": "faf4623",
+      "rev": "371cd74",
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "3590d66",
+      "rev": "d7b5feb",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer.nvim": {
@@ -71,7 +71,7 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lspconfig": {
-      "rev": "e25994a",
+      "rev": "a89bfcf",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -80,7 +80,7 @@
       "version": "3.0.0 - 4.0.0"
     },
     "nvim-treesitter": {
-      "rev": "64f4755b",
+      "rev": "55820833",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
