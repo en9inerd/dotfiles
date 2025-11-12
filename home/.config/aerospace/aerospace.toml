@@ -167,7 +167,7 @@ automatically-unhide-macos-hidden-apps = false
 # Ghostty
 [[on-window-detected]]
 if.app-id="com.mitchellh.ghostty"
-run= "layout floating"
+run= ["layout floating", "move-node-to-workspace 1"]
 
 # Firefox
 [[on-window-detected]]
