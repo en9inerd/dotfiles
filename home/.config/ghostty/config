@@ -28,8 +28,9 @@ cursor-style-blink=false
 window-height=40
 window-width=120
 
-# macos-titlebar-style=tabs
+macos-titlebar-style=tabs
 
 window-save-state = always
 mouse-hide-while-typing = true
 shell-integration = zsh
+quit-after-last-window-closed=true
