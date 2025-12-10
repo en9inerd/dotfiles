@@ -222,7 +222,7 @@ function M.setup()
       end,
     },
     angularls = {
-      cmd = angular_cmd,
+      -- cmd = angular_cmd,
       workspace_required = true,
       on_attach = function(client, bufnr)
         client.server_capabilities.renameProvider = false
