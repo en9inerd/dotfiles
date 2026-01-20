@@ -5,6 +5,9 @@ function M.setup()
 
   require('gitsigns').setup {
     sign_priority = 100,
+    preview_config = {
+      border = 'single',
+    },
     on_attach = function(bufnr)
       vim.cmd 'redrawstatus'
 
