@@ -27,15 +27,15 @@
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "friendly-snippets": {
-      "rev": "572f566",
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "518ab7a64ca65899a218f364f0fb9e38ff7bdcc8",
+      "rev": "95f6baea73d0440a28c55d370d424ac645b447a0",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "42d6aed4e94e0f0bbced16bbdcc42f57673bd75e",
+      "rev": "abf82a65f185bd54adc0679f74b7d6e1ada690c9",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "guess-indent.nvim": {
@@ -46,16 +46,12 @@
       "rev": "38572ce5a7a064a5deb89d6d861b7c40fc929ab1",
       "src": "https://github.com/nvimdev/indentmini.nvim"
     },
-    "lazydev.nvim": {
-      "rev": "5231c62",
-      "src": "https://github.com/folke/lazydev.nvim"
-    },
     "mason-lspconfig.nvim": {
-      "rev": "80c0130c5f16b551865a69e832f1feadeedb5fbe",
+      "rev": "4823a251e7578a835bb979c37df390fca692ba39",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer.nvim": {
-      "rev": "517ef59",
+      "rev": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc",
       "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
     },
     "mason.nvim": {
@@ -71,7 +67,7 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lspconfig": {
-      "rev": "92ee7d42320edfbb81f3cad851314ab197fa324a",
+      "rev": "419b082102fa813739588dd82e19a8b6b2442855",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -80,7 +76,7 @@
       "version": "3.0.0 - 4.0.0"
     },
     "nvim-treesitter": {
-      "rev": "e75c007f2747050c2c620dc862c77b8f242551a8",
+      "rev": "88f1dfc211c3a2fb47f1451fd5edc972ec697e58",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },

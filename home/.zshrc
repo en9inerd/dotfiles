@@ -100,8 +100,8 @@ export GPG_TTY="$(tty)"
 export PATH="$PATH:$HOME/.local/bin"
 
 # zig
-# export PATH=$PATH:$HOME/Development/zig
-# export PATH=$PATH:$HOME/Development/zls
+export PATH=$PATH:$HOME/Development/zig
+export PATH=$PATH:$HOME/Development/zls
 
 # Gitignore generator
 function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}

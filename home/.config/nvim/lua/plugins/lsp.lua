@@ -9,23 +9,12 @@ function M.setup()
     { src = 'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim' },
   }
 
-  -- Load on Lua filetypes (ft = 'lua'). Run once.
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'lua',
-    once = true,
-    callback = function()
-      vim.pack.add { 'https://github.com/folke/lazydev.nvim' }
-
-      require('lazydev').setup {
-        library = {
-          -- Load luvit types when the `vim.uv` word is found
-          { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-        },
-      }
-    end,
-  })
-
-  require('fidget').setup {}
+  require('fidget').setup {
+    progress = {
+      suppress_on_insert = true,
+      ignore_done_already = true,
+    },
+  }
   require('mason').setup {}
 
   -- make floating preview include a border by default
@@ -246,11 +235,16 @@ function M.setup()
       -- capabilities = {},
       settings = {
         Lua = {
-          completion = {
-            callSnippet = 'Replace',
+          diagnostics = {
+            globals = { 'vim' },
           },
-          -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-          -- diagnostics = { disable = { 'missing-fields' } },
+          workspace = {
+            checkThirdParty = false,
+            library = {
+              vim.fn.stdpath 'config',
+              vim.env.VIMRUNTIME,
+            },
+          },
         },
       },
     },
