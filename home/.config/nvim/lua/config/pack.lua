@@ -19,6 +19,7 @@ require('plugins.mini').setup()
 require('plugins.conform').setup()
 require('plugins.sessions').setup()
 require('plugins.arrow').setup()
+require('plugins.render-markdown').setup()
 -- require('plugins.copilot').setup()
 
 -- done. If new plugins are added/changed in this file, run :restart and then

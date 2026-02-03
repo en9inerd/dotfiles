@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   vim.pack.add {
     { src = 'https://github.com/rafamadriz/friendly-snippets' },
-    { src = 'https://github.com/L3MON4D3/LuaSnip', version = vim.version.range '^2' },
+    { src = 'https://github.com/L3MON4D3/LuaSnip' },
     { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '^1' },
   }
 
@@ -74,7 +74,9 @@ function M.setup()
         -- the rust implementation via `'prefer_rust_with_warning'`
         --
         -- See :h blink-cmp-config-fuzzy for more information
-        fuzzy = {},
+        fuzzy = {
+          implementation = 'prefer_rust',
+        },
 
         -- Shows a signature help window while you type arguments for a function
         signature = { enabled = true, window = { border = 'single' } },
