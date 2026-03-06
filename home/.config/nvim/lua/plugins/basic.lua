@@ -5,7 +5,7 @@ function M.setup()
     { src = 'https://github.com/NMAC427/guess-indent.nvim' },
     { src = 'https://github.com/tpope/vim-fugitive' },
     { src = 'https://github.com/windwp/nvim-autopairs' },
-    { src = 'https://github.com/kylechui/nvim-surround', version = vim.version.range '^3' },
+    { src = 'https://github.com/kylechui/nvim-surround', version = vim.version.range '^4' },
     -- { src = 'https://github.com/ThePrimeagen/vim-be-good' },
   }
 

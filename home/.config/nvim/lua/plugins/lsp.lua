@@ -117,8 +117,6 @@ function M.setup()
     },
   }
 
-  local angular_cmd = require 'lsp.angularls'
-
   local servers = {
     -- clangd = {},
     gopls = {
@@ -154,64 +152,8 @@ function M.setup()
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     ts_ls = {
       workspace_required = true,
-      root_dir = function(bufnr, on_dir)
-        local fname
-        if type(bufnr) == 'number' then
-          fname = vim.api.nvim_buf_get_name(bufnr)
-        elseif type(bufnr) == 'string' then
-          fname = bufnr
-        else
-          fname = ''
-        end
-
-        local uv = vim.uv or vim.loop
-        local start_dir = (fname == '' or fname == nil) and uv.cwd() or vim.fs.dirname(fname)
-
-        local function nearest_dir_with(names, from_dir)
-          local dir = from_dir
-          local function exists(p)
-            return uv.fs_stat(p) ~= nil
-          end
-          while dir and dir ~= '' do
-            for _, name in ipairs(names) do
-              if exists(dir .. '/' .. name) then
-                return dir
-              end
-            end
-            local parent = vim.fs.dirname(dir)
-            if parent == dir then
-              break
-            end
-            dir = parent
-          end
-          return nil
-        end
-
-        local ng_root = nearest_dir_with({ 'angular.json' }, start_dir)
-        if ng_root then
-          return (on_dir and on_dir(ng_root)) or ng_root
-        end
-
-        local pkg_root = nearest_dir_with({ 'tsconfig.json', 'tsconfig.app.json', 'tsconfig.lib.json', 'jsconfig.json', 'package.json' }, start_dir)
-        if pkg_root then
-          return (on_dir and on_dir(pkg_root)) or pkg_root
-        end
-
-        local git_root = nearest_dir_with({ '.git' }, start_dir)
-        if git_root then
-          return (on_dir and on_dir(git_root)) or git_root
-        end
-
-        local ws_root = nearest_dir_with({ 'pnpm-workspace.yaml', 'nx.json', 'workspace.json', 'turbo.json' }, start_dir)
-        if ws_root then
-          return (on_dir and on_dir(ws_root)) or ws_root
-        end
-
-        return nil
-      end,
     },
     angularls = {
-      -- cmd = angular_cmd,
       workspace_required = true,
       on_attach = function(client, bufnr)
         client.server_capabilities.renameProvider = false
