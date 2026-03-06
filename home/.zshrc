@@ -43,13 +43,16 @@ alias vim=nvim
 export EDITOR=nvim
 
 # Add Homebrew completions before compinit
-if type brew &>/dev/null; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
+[[ -d "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh/site-functions" ]] && \
+  FPATH="${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh/site-functions:${FPATH}"
 
 # enable completions
 autoload -Uz compinit
-compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 
 # only when HEAD (SHA) changes
 typeset -g LAST_GIT_SHA=""
@@ -90,7 +93,7 @@ PROMPT='%B${C_LIGHTGREEN}%n%b${C_DEFAULT}@${C_BLUE}%m%B${C_LIGHTYELLOW} %1~$(git
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+eval "$(pyenv init --no-rehash - zsh)"
 # eval "$(pyenv virtualenv-init -)"
 
 # gpg
