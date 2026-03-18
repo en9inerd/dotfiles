@@ -34,7 +34,3 @@ window-save-state = always
 mouse-hide-while-typing = true
 shell-integration = zsh
 quit-after-last-window-closed=true
-
-macos-option-as-alt=true
-keybind = alt+left=unbind
-keybind = alt+right=unbind

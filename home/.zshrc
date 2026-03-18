@@ -5,6 +5,8 @@ setopt    append_history
 setopt    share_history
 setopt    inc_append_history
 
+bindkey -e
+
 alias ls='ls -Fa'
 
 # Define colors
