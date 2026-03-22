@@ -68,3 +68,10 @@ vim.keymap.set('n', '<leader>S', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- Make the current file executable
 vim.keymap.set('n', '<leader>X', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make file executable' })
+
+vim.keymap.set('n', '<M-f>', 'w', { desc = 'Next word' })
+vim.keymap.set('n', '<M-b>', 'b', { desc = 'Previous word' })
+vim.keymap.set('i', '<M-f>', '<C-o>w', { desc = 'Next word (insert)' })
+vim.keymap.set('i', '<M-b>', '<C-o>b', { desc = 'Prev word (insert)' })
+vim.keymap.set('v', '<M-f>', 'w', { desc = 'Extend forward word' })
+vim.keymap.set('v', '<M-b>', 'b', { desc = 'Extend backward word' })
