@@ -118,7 +118,7 @@ function M.setup()
   }
 
   local servers = {
-    -- clangd = {},
+    clangd = {},
     gopls = {
       usePlaceholders = true,
       completeUnimported = true,
