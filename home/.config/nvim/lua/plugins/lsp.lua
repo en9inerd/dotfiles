@@ -119,6 +119,9 @@ function M.setup()
 
   local servers = {
     clangd = {},
+    zls = {
+      cmd = { 'zls' },
+    },
     gopls = {
       usePlaceholders = true,
       completeUnimported = true,
@@ -198,7 +201,10 @@ function M.setup()
   }
 
   -- Ensure installed (mason-tool-installer)
-  local ensure_installed = vim.tbl_keys(servers or {})
+  local manual_servers = { 'zls' }
+  local ensure_installed = vim.tbl_filter(function(k)
+    return not vim.tbl_contains(manual_servers, k)
+  end, vim.tbl_keys(servers or {}))
   vim.list_extend(ensure_installed, { 'stylua' })
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -207,6 +213,8 @@ function M.setup()
     config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
     vim.lsp.config(server_name, config)
   end
+
+  vim.lsp.enable(manual_servers)
 
   -- NOTE: Some servers may require an old setup until they are updated. For the full list refer here: https://github.com/neovim/nvim-lspconfig/issues/3705
   -- These servers will have to be manually set up with require("lspconfig").server_name.setup{}
