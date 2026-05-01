@@ -121,3 +121,6 @@ source <(fzf --zsh)
 
 # FNM
 eval "$(fnm env --use-on-cd --shell zsh)"
+
+# GO bin
+export PATH=$PATH:$(go env GOPATH)/bin
