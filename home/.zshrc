@@ -124,3 +124,13 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 # GO bin
 export PATH=$PATH:$(go env GOPATH)/bin
+
+# nav key bindings (terminfo-based binds in /etc/zshrc skipped without zsh/terminfo module)
+bindkey "^[[1~"   beginning-of-line     # Home (tmux-256color)
+bindkey "^[[4~"   end-of-line           # End  (tmux-256color)
+bindkey "^[[H"    beginning-of-line     # Home (xterm/ghostty)
+bindkey "^[[F"    end-of-line           # End  (xterm/ghostty)
+bindkey "^[[3~"   delete-char           # Delete
+bindkey "^[[1;3D" backward-word         # alt+left  (modern xterm)
+bindkey "^[[1;3C" forward-word          # alt+right (modern xterm)
+bindkey "^[^?"    backward-kill-word    # alt+backspace
