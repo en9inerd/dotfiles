@@ -69,7 +69,7 @@ precmd() {
       LAST_GIT_SHA=$sha
 
       # compute branch; use symbolic-ref if available (clean branch name)
-      GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --abbrev-ref HEAD 2>/dev/null || "")
+      GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --abbrev-ref HEAD 2>/dev/null)
       [[ $GIT_BRANCH == "HEAD" ]] && GIT_BRANCH=$sha
     fi
   else
@@ -114,7 +114,7 @@ function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$
 alias rm='rm -i'
 
 # PATH analyzer
-alias path-analyzer="echo $PATH | tr ':' '\n' | sort | uniq -c"
+alias path-analyzer='echo $PATH | tr ":" "\n" | sort | uniq -c'
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -134,3 +134,7 @@ bindkey "^[[3~"   delete-char           # Delete
 bindkey "^[[1;3D" backward-word         # alt+left  (modern xterm)
 bindkey "^[[1;3C" forward-word          # alt+right (modern xterm)
 bindkey "^[^?"    backward-kill-word    # alt+backspace
+
+_esc_dispatch() { zle -U $'\e'; }
+zle -N _esc_dispatch
+bindkey '\e\e' _esc_dispatch
