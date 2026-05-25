@@ -27,6 +27,7 @@ cursor-style-blink=false
 # window
 window-height=40
 window-width=120
+window-padding-x = 10
 
 macos-titlebar-style=tabs
 
@@ -38,7 +39,6 @@ command = ~/.local/bin/zmx-sessionizer
 split-divider-color = #702b0d
 
 # zmx keybinds (tmux-style prefix: ctrl+b > key)
-keybind = ctrl+b>f=new_tab
 keybind = ctrl+b>shift+d=text:todo\n
 keybind = ctrl+b>w=text:zmx-workspace attach\n
 keybind = ctrl+b>x=text:zmx kill $ZMX_SESSION\n
