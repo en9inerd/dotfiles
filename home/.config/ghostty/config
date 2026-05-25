@@ -35,6 +35,7 @@ mouse-hide-while-typing = true
 shell-integration = zsh
 quit-after-last-window-closed=true
 command = ~/.local/bin/zmx-sessionizer
+split-divider-color = #702b0d
 
 # zmx keybinds (tmux-style prefix: ctrl+b > key)
 keybind = ctrl+b>f=new_tab
