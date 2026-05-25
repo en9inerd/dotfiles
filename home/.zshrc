@@ -5,8 +5,6 @@ setopt    append_history
 setopt    share_history
 setopt    inc_append_history
 
-bindkey -e
-
 alias ls='ls -Fa'
 
 # Define colors
@@ -44,11 +42,16 @@ alias vim=nvim
 # default editor
 export EDITOR=nvim
 
+todo() { [[ -e TODO.md ]] && nvim TODO.md || nvim ~/Development/TODO.md; }
+alias zws='zmx-workspace'
+alias zs='zmx-sessionizer'
+
 # Add Homebrew completions before compinit
 [[ -d "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh/site-functions" ]] && \
   FPATH="${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh/site-functions:${FPATH}"
 
 # enable completions
+setopt extendedglob
 autoload -Uz compinit
 if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
   compinit
@@ -123,18 +126,12 @@ source <(fzf --zsh)
 eval "$(fnm env --use-on-cd --shell zsh)"
 
 # GO bin
-export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:$HOME/go/bin
 
-# nav key bindings (terminfo-based binds in /etc/zshrc skipped without zsh/terminfo module)
-bindkey "^[[1~"   beginning-of-line     # Home (tmux-256color)
-bindkey "^[[4~"   end-of-line           # End  (tmux-256color)
-bindkey "^[[H"    beginning-of-line     # Home (xterm/ghostty)
-bindkey "^[[F"    end-of-line           # End  (xterm/ghostty)
-bindkey "^[[3~"   delete-char           # Delete
-bindkey "^[[1;3D" backward-word         # alt+left  (modern xterm)
-bindkey "^[[1;3C" forward-word          # alt+right (modern xterm)
-bindkey "^[^?"    backward-kill-word    # alt+backspace
+# zmx completions
+source <(zmx completions zsh)
 
-_esc_dispatch() { zle -U $'\e'; }
-zle -N _esc_dispatch
-bindkey '\e\e' _esc_dispatch
+# zmx tab title — must be last so it wins over fzf/fnm/ghostty hooks
+_zmx_title() { [[ -n "$ZMX_SESSION" ]] && printf '\e]0;%s\a' "$ZMX_SESSION"; }
+precmd_functions+=(_zmx_title)
+

@@ -34,3 +34,11 @@ window-save-state = always
 mouse-hide-while-typing = true
 shell-integration = zsh
 quit-after-last-window-closed=true
+command = ~/.local/bin/zmx-sessionizer
+
+# zmx keybinds (tmux-style prefix: ctrl+b > key)
+keybind = ctrl+b>f=new_tab
+keybind = ctrl+b>shift+d=text:todo\n
+keybind = ctrl+b>w=text:zmx-workspace attach\n
+keybind = ctrl+b>x=text:zmx kill $ZMX_SESSION\n
+keybind = ctrl+b>shift+x=text:zws kill-session\n
