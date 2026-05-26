@@ -135,3 +135,7 @@ source <(zmx completions zsh)
 _zmx_title() { [[ -n "$ZMX_SESSION" ]] && printf '\e]0;%s\a' "$ZMX_SESSION"; }
 precmd_functions+=(_zmx_title)
 
+# Odin
+export PATH="/Users/enginerd/Development/odin:$PATH"
+
+bindkey -e
