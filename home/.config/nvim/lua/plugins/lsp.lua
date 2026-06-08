@@ -193,6 +193,11 @@ function M.setup()
         },
       },
     },
+    ols = {
+      init_options = {
+        checker_args = '-strict-style',
+      },
+    },
   }
 
   -- Mason-lspconfig automatic enable

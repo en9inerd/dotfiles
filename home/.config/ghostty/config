@@ -19,7 +19,7 @@ font-feature=cv12,cv18,cv19,cv20
 theme=Dracula+
 
 # cursor
-shell-integration-features=no-cursor,no-sudo,ssh-env
+shell-integration-features=no-cursor,no-sudo,ssh-terminfo,ssh-env
 cursor-style=block
 cursor-style-blink=false
 # adjust-cursor-thickness=3
@@ -36,6 +36,7 @@ mouse-hide-while-typing = true
 shell-integration = zsh
 quit-after-last-window-closed=true
 command = ~/.local/bin/zmx-sessionizer
+window-inherit-working-directory = true
 split-divider-color = #702b0d
 
 # zmx keybinds (tmux-style prefix: ctrl+b > key)
