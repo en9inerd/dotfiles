@@ -80,7 +80,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "f448f54ece0cdba82a31e41186720f902c91c090",
+      "rev": "30b6dd8d14bf4a3870dc44ccefdc228a9a760e71",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim",
       "version": "'main'"
     },

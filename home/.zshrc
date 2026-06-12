@@ -131,7 +131,8 @@ export PATH=$PATH:$HOME/go/bin
 # zmx completions
 source <(zmx completions zsh)
 
-# zmx tab title — must be last so it wins over fzf/fnm/ghostty hooks
+# zmx tab title: strip ghostty's title hooks inside zmx sessions so _zmx_title wins
+[[ -n "$ZMX_SESSION" ]] && GHOSTTY_SHELL_FEATURES=${(j:,:)${(s:,:)GHOSTTY_SHELL_FEATURES:#title}}
 _zmx_title() { [[ -n "$ZMX_SESSION" ]] && printf '\e]0;%s\a' "$ZMX_SESSION"; }
 precmd_functions+=(_zmx_title)
 
