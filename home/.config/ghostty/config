@@ -40,7 +40,7 @@ split-divider-color = #702b0d
 
 # zmx keybinds (tmux-style prefix: ctrl+b > key)
 keybind = ctrl+b>shift+d=text:todo\n
-keybind = ctrl+b>f=text:zmx-sessionizer\n
-keybind = ctrl+b>w=text:zmx-workspace attach\n
+keybind = ctrl+b>f=text:zs\n
+keybind = ctrl+b>w=text:zws attach\n
 keybind = ctrl+b>x=text:zmx kill $ZMX_SESSION\n
-keybind = ctrl+b>shift+x=text:zws kill-session\n
+keybind = ctrl+b>shift+x=text:zs kill\n
