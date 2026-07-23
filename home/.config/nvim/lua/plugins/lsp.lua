@@ -118,7 +118,12 @@ function M.setup()
   }
 
   local servers = {
-    clangd = {},
+    clangd = {
+      filetypes = {
+        'c',
+        'cpp',
+      },
+    },
     zls = {
       cmd = { 'zls' },
     },

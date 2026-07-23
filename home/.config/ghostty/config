@@ -45,4 +45,4 @@ keybind = ctrl+b>w=text:zws attach\n
 keybind = ctrl+b>x=text:zmx kill $ZMX_SESSION\n
 keybind = ctrl+b>shift+x=text:zs kill\n
 
-# auto-update-channel = tip
+auto-update-channel = tip
