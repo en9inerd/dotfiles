@@ -8,6 +8,10 @@ function M.setup()
       local cmd = 'git rev-parse --is-inside-work-tree'
       return vim.fn.system(cmd) == 'true\n'
     end,
+
+    bypass_session_save_file_types = {
+      'oil',
+    },
   }
 end
 

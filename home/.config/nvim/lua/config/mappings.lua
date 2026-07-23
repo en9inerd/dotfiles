@@ -10,14 +10,14 @@ vim.keymap.set('n', '<leader>bd', ':bp | bd#<CR>', { desc = 'Delete buffer, keep
 vim.keymap.set('n', '<leader>w', ':up<CR>', { desc = 'Save current buffer' })
 
 -- Keymap for netrw
-vim.keymap.set('n', '<leader>e', function()
-  local dir = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
-  if dir and dir ~= '' then
-    vim.cmd.Explore(vim.fn.fnameescape(dir))
-  else
-    vim.cmd.Explore()
-  end
-end, { desc = "Open netrw in current file's directory" })
+-- vim.keymap.set('n', '<leader>e', function()
+--   local dir = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
+--   if dir and dir ~= '' then
+--     vim.cmd.Explore(vim.fn.fnameescape(dir))
+--   else
+--     vim.cmd.Explore()
+--   end
+-- end, { desc = "Open netrw in current file's directory" })
 
 --) Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
