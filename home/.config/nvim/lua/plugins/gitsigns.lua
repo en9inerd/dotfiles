@@ -8,6 +8,7 @@ function M.setup()
     preview_config = {
       border = 'single',
     },
+    current_line_blame = true,
     on_attach = function(bufnr)
       vim.cmd 'redrawstatus'
 
