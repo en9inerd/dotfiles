@@ -124,9 +124,9 @@ function M.setup()
     --     'cpp',
     --   },
     -- },
-    zls = {
-      cmd = { 'zls' },
-    },
+    -- zls = {
+    --   cmd = { 'zls' },
+    -- },
     gopls = {
       usePlaceholders = true,
       completeUnimported = true,
@@ -211,7 +211,7 @@ function M.setup()
   }
 
   -- Ensure installed (mason-tool-installer)
-  local manual_servers = { 'zls' }
+  local manual_servers = {}
   local ensure_installed = vim.tbl_filter(function(k)
     return not vim.tbl_contains(manual_servers, k)
   end, vim.tbl_keys(servers or {}))
