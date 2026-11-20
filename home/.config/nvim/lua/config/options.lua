@@ -60,7 +60,13 @@ vim.o.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.o.list = true
-vim.opt.listchars = { tab = '▸ ', trail = '·', nbsp = '␣', extends = '⟩', precedes = '⟨' }
+vim.opt.listchars = {
+  tab = '▸ ',
+  trail = '·',
+  nbsp = '␣',
+  extends = '⟩',
+  precedes = '⟨',
+}
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
