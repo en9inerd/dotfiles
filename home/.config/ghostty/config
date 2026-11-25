@@ -38,11 +38,13 @@ quit-after-last-window-closed=true
 window-inherit-working-directory = true
 split-divider-color = #702b0d
 
-# zmx keybinds (tmux-style prefix: ctrl+b > key)
-keybind = ctrl+b>shift+d=text:todo\n
-keybind = ctrl+b>f=text:zs\n
-keybind = ctrl+b>w=text:zws attach\n
-keybind = ctrl+b>x=text:zmx kill $ZMX_SESSION\n
-keybind = ctrl+b>shift+x=text:zs kill\n
+# gws keybinds (tmux-style prefix: ctrl+b > key)
+keybind = ctrl+b>shift+d=text:\x20todo\n
+keybind = ctrl+b>f=text:\x20gws\n
+keybind = ctrl+b>v=text:\x20gws split right\n
+keybind = ctrl+b>s=text:\x20gws split down\n
+keybind = ctrl+b>c=text:\x20gws tab\n
+keybind = ctrl+b>x=text:\x20gws kill\n
+keybind = ctrl+b>shift+x=text:\x20gws pick --kill\n
 
 auto-update-channel = tip

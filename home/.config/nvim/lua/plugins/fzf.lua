@@ -30,6 +30,10 @@ function M.setup()
         },
       },
     },
+    grep = {
+      hidden = true,
+      rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g '!.git' -e",
+    },
   }
   fzf.register_ui_select()
 

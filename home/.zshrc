@@ -4,6 +4,7 @@ SAVEHIST=10000
 setopt    append_history
 setopt    share_history
 setopt    inc_append_history
+setopt    hist_ignore_space
 
 alias ls='ls -Fa'
 
@@ -43,21 +44,20 @@ alias vim=nvim
 export EDITOR=nvim
 
 todo() { [[ -e TODO.md ]] && nvim TODO.md || nvim ~/Development/TODO.md; }
-alias zws='zmx-workspace'
-alias zs='zmx-sessionizer'
 
 # Add Homebrew completions before compinit
 [[ -d "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh/site-functions" ]] && \
   FPATH="${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh/site-functions:${FPATH}"
 
 # enable completions
-setopt extendedglob
 autoload -Uz compinit
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-  compinit
-else
-  compinit -C
+compinit -C
+# Refresh the completion cache once a day in the background so no shell waits for it
+stale_zcompdump=(~/.zcompdump(N.mh+24))
+if (( $#stale_zcompdump )); then
+  { compinit -d ~/.zcompdump.$$ && zcompile ~/.zcompdump.$$ && mv -f ~/.zcompdump.$$.zwc ~/.zcompdump.zwc && mv -f ~/.zcompdump.$$ ~/.zcompdump } &!
 fi
+unset stale_zcompdump
 
 # only when HEAD (SHA) changes
 typeset -g LAST_GIT_SHA=""
@@ -132,11 +132,11 @@ export PATH=$PATH:$HOME/go/bin
 source <(zmx completions zsh)
 
 # zmx tab title: strip ghostty's title hooks inside zmx sessions so _zmx_title wins
-[[ -n "$ZMX_SESSION" ]] && GHOSTTY_SHELL_FEATURES=${(j:,:)${(s:,:)GHOSTTY_SHELL_FEATURES:#title}}
+[[ -n "$ZMX_SESSION" ]] && GHOSTTY_SHELL_FEATURES=${(j:,:)${(@)${(@s:,:)GHOSTTY_SHELL_FEATURES}:#title}}
 _zmx_title() { [[ -n "$ZMX_SESSION" ]] && printf '\e]0;%s\a' "$ZMX_SESSION"; }
 precmd_functions+=(_zmx_title)
 
 # Odin
-export PATH="/Users/enginerd/Development/odin:$PATH"
+export PATH="$PATH:$HOME/Development/odin"
 
 bindkey -e
