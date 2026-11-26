@@ -31,7 +31,7 @@ window-padding-x = 10
 
 macos-titlebar-style=tabs
 
-window-save-state = always
+# window-save-state = always
 mouse-hide-while-typing = true
 shell-integration = zsh
 quit-after-last-window-closed=true
